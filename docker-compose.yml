@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+    haproxy:
+        image:  haproxy:1.7
+        container_name: haproxy
+        ports:
+            - "8082:80"
+        volumes:
+            - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    nginx:
+        image:  nginx:1.21
+        ports:
+            - "8083:8080"
+        volumes:
+            - ./nginx/conf.d/:/etc/nginx/conf.d/
+            - ./nginx/webapps/:/usr/share/nginx/webapps/
