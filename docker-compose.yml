@@ -3,10 +3,14 @@ services:
     haproxy:
         image:  haproxy:1.7
         container_name: haproxy
+        environment:
+            TZ: America/Lima
         ports:
-            - "8082:80"
+            - "80:80"
+            - "443:443"
         volumes:
             - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+            - ./ssl/:/etc/ssl/
     nginx:
         image:  nginx:1.21
         ports:
