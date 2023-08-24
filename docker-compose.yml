@@ -18,3 +18,4 @@ services:
         volumes:
             - ./nginx/conf.d/:/etc/nginx/conf.d/
             - ./nginx/webapps/:/usr/share/nginx/webapps/
+            - ./nginx/error_page/:/usr/share/nginx/error_page/
